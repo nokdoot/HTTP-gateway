@@ -10,7 +10,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.get;
 import static com.github.tomakehurst.wiremock.client.WireMock.stubFor;
 import static com.github.tomakehurst.wiremock.client.WireMock.urlEqualTo;
 import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,15 +59,4 @@ public class ApplicationTest {
 			.consumeWith(
 				response -> assertThat(response.getResponseBody()).isEqualTo("fallback".getBytes()));
 	}
-        @Test
-    public void testSum() {
-        Calculator calculator = new Calculator();
-            Assert.assertEquals(30, calculator.sum(10, 20));
-    }
-}
-
-class Calculator {  
-    public int sum(int num1, int num2){
-        return num1 + num2;
-    }
 }
